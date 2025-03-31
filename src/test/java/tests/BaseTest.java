@@ -22,6 +22,7 @@ public class BaseTest implements ITestConstants, IConstants {
     protected NewAccountModalPage newAccountModalPage;
     protected NewContactModalPage newContactModalPage;
     protected ContactListPage contactListPage;
+    protected ContactPage contactPage;
 
     public void initPages(){
         accountPage = new AccountPage(driver);
@@ -31,6 +32,7 @@ public class BaseTest implements ITestConstants, IConstants {
         newAccountModalPage = new NewAccountModalPage(driver);
         newContactModalPage = new NewContactModalPage(driver);
         contactListPage = new ContactListPage(driver);
+        contactPage = new ContactPage(driver);
     }
 
     @BeforeMethod

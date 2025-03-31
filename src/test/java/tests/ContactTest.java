@@ -25,4 +25,16 @@ public class ContactTest extends BaseTest {
         Assert.assertEquals(contactListPage.getExistContactName(contact.getLastName()), contact.getLastName());
         Assert.assertEquals(contactListPage.getAccountNameByContactName(contact.getAccountName()), contact.getAccountName());
     }
+
+    @Test
+    public void checkCreatedContact(){
+        loginPage.openPage(LOGIN_URL)
+                .login(username, password);
+        contactListPage.openPage(CONTACT_LIST_URL)
+                .clickOnContactName("Tur");
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertEquals(contactPage.getFieldValueByName("Name"), "Mrs. Tur");
+        softAssert.assertEquals(contactPage.getAccountName(), "account3");
+        softAssert.assertAll();
+    }
 }
